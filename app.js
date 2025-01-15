@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -179,7 +178,7 @@ function processArgs(args, options) {
       host: {
         description: 'IdP Web Server Listener Host',
         required: false,
-        default: 'localhost'
+        default: '0.0.0.0'
       },
       port: {
         description: 'IdP Web Server Listener Port',
@@ -208,7 +207,8 @@ function processArgs(args, options) {
       acsUrl: {
         description: 'SP Assertion Consumer URL',
         required: true,
-        alias: 'acs'
+        alias: 'acs',
+        default: process.env.SAML_ACS_URL
       },
       sloUrl: {
         description: 'SP Single Logout URL',
@@ -218,7 +218,8 @@ function processArgs(args, options) {
       audience: {
         description: 'SP Audience URI',
         required: true,
-        alias: 'aud'
+        alias: 'aud',
+        default: process.env.SAML_AUDIENCE
       },
       serviceProviderId: {
         description: 'SP Issuer/Entity URI',
